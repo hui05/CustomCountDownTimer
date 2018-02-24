@@ -2,7 +2,9 @@
 倒计时  用于 TextView  Button
 
 
- new CustomCountDownTimer.Build(MainActivity.this)
+
+'''
+	new CustomCountDownTimer.Build(MainActivity.this)
                         .setView(mTvCountDown)    // 设置目标 View
                         .setMillisInFuture(6000)    // 设置倒计时 开始时间  单位 毫秒
                         .setCountDownInterval(1000)  // 设置倒计时  的时间间隔  单位 毫秒
@@ -16,3 +18,4 @@
                         .setTickSuffix(" S")  // 设置倒计时 的后缀
                         .build()
                         .start();
+'''
