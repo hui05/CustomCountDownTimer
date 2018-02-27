@@ -1,15 +1,21 @@
 package com.enci.customcountdowntimer;
 
-import android.support.v7.app.AppCompatActivity;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.enci.library.CustomCountDownTimer;
+import com.enci.library.view.CircleProgressBar;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTvCountDown;
+    private CircleProgressBar mCircleProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,5 +43,47 @@ public class MainActivity extends AppCompatActivity {
                         .start();
             }
         });
+
+
+        // 自动跳转的 CircleProgressBar
+
+        mCircleProgressBar = (CircleProgressBar) findViewById(R.id.circleProgressBar);
+
+        simulateProgress();
+    }
+
+
+    private void simulateProgress() {
+
+        ValueAnimator animator = ValueAnimator.ofInt(0, 100);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                int progress = (int) animation.getAnimatedValue();
+                mCircleProgressBar.setProgress(progress);
+            }
+        });
+        // animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setDuration(4000);  // 设置为4秒钟跳过
+        animator.start();
+
+
+        // 添加结束时的 动作
+        animator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                Toast.makeText(MainActivity.this, "结束", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // 手动点击跳转
+        mCircleProgressBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "跳过", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 }

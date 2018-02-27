@@ -1,4 +1,4 @@
-package com.enci.customcountdowntimer;
+package com.enci.library;
 
 import android.content.Context;
 import android.os.CountDownTimer;
@@ -34,9 +34,10 @@ public class CustomCountDownTimer extends CountDownTimer {
 
     private float mTickTextSize = 0;
 
-    private int mTickTextColor = R.color.c_51;
+    private int mTickTextColor = 0;
 
-    private int mEndTextColor = R.color.c_177be6;
+    private int mEndTextColor = 0;
+
     private Context mContext;
 
     /**
@@ -137,9 +138,11 @@ public class CustomCountDownTimer extends CountDownTimer {
 
         long countDownInterval;
 
-        private int mTickTextColor = R.color.c_51;
+        private int mTickTextColor = android.R.color.darker_gray;
 
-        private int mEndTextColor = R.color.c_177be6;
+        private int mEndTextColor = android.R.color.holo_blue_bright;
+
+
         private Context mContext;
 
         /**
