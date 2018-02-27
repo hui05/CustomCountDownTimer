@@ -2,7 +2,7 @@
 倒计时  用于 TextView  Button
 
 
-#### 具体用法
+#### 一、CustomCountDownTimer具体用法
 
 ```
 	new CustomCountDownTimer.Build(MainActivity.this)
@@ -20,3 +20,27 @@
                         .build()
                         .start();
 ```
+
+
+#### 二、CircleProgressBar具体用法
+
+```
+	<com.enci.library.view.CircleProgressBar
+		android:id="@+id/circleProgressBar"
+		android:layout_width="35dp"	
+		android:layout_height="35dp"
+		android:layout_marginTop="20dp"
+		app:line_count="30"
+		app:line_width="1dp"
+		app:progress_background_color="@android:color/holo_green_light"	
+		app:progress_end_color="@android:color/holo_red_dark"
+		app:progress_shader="sweep"
+		app:progress_start_color="@android:color/holo_red_dark"
+		app:progress_stroke_cap="round"
+		app:progress_stroke_width="2dp"	
+		app:progress_text_center="跳过"	// ProgresBar 中间的字体, 如果不设置的话, 则默认为:百分比进度
+		app:progress_text_color="@android:color/darker_gray"
+		app:progress_text_size="13sp"	// 字体大小, 不设置默认为 11sp
+		app:style="solid_line" />
+```
+      CircleProgressBar的其他用法  详细参见: https://github.com/dinuscxj/CircleProgressBar.git
