@@ -50,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
         mCircleProgressBar = (CircleProgressBar) findViewById(R.id.circleProgressBar);
 
         simulateProgress();
+
+
+        // dev 上作出的修改
     }
 
 
